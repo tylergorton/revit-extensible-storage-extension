@@ -97,7 +97,7 @@ namespace ExtensibleStorageExtension
                          * an IList interface as value. 
                          * Even if the type implements IList<T> interface
                          * With this method which do nothing except takes a 
-                         * IList parameter instead FieldType, it works propoerly
+                         * IList parameter instead FieldType, it works properly
                          */
 
                         if (field.UnitType == UnitType.UT_Undefined)
@@ -166,8 +166,7 @@ namespace ExtensibleStorageExtension
                 throw new NotSupportedException("Unsupported type");
             }
 
-            /* ExStorage.Entity supports primitive generic types, described 
-             * here
+            /* ExStorage.Entity supports primitive generic types, described here
              * http://wikihelp.autodesk.com/Revit/enu/2013/Help/00006-API_Developer's_Guide/0135-Advanced135/0136-Storing_136/0141-Extensib141
              * And also generic type can be an ExStorage.Entity, i.e. IDictionary<T, Entity>.
              * So, need to check whether generic type is Entity or not.
