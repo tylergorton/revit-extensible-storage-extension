@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 14 for Windows Desktop
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensibleStorageExtension2014", "ExtensibleStorageExtension2014.csproj", "{2DEF625F-1B50-4AC3-8364-999F1861D471}"
 EndProject
@@ -10,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensibleStorageExtension2016", "ExtensibleStorageExtension2016.csproj", "{77DA2832-91A4-4BE8-92CF-CEDA300C7529}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensibleStorageExtension2017", "ExtensibleStorageExtension2017.csproj", "{A6FDF26D-BE27-47B7-9D22-D4800B2FAD55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensibleStorageExtension2018", "ExtensibleStorageExtension2018.csproj", "{D288B080-569C-4EF7-816C-3BCE105B88F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensibleStorageExtension2019", "ExtensibleStorageExtension2019.csproj", "{99E9968A-AE2C-4E7D-9D80-DAED92D886BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,8 +55,27 @@ Global
 		{A6FDF26D-BE27-47B7-9D22-D4800B2FAD55}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A6FDF26D-BE27-47B7-9D22-D4800B2FAD55}.Release|x64.ActiveCfg = Release|x64
 		{A6FDF26D-BE27-47B7-9D22-D4800B2FAD55}.Release|x64.Build.0 = Release|x64
+		{D288B080-569C-4EF7-816C-3BCE105B88F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D288B080-569C-4EF7-816C-3BCE105B88F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D288B080-569C-4EF7-816C-3BCE105B88F7}.Debug|x64.ActiveCfg = Debug|x64
+		{D288B080-569C-4EF7-816C-3BCE105B88F7}.Debug|x64.Build.0 = Debug|x64
+		{D288B080-569C-4EF7-816C-3BCE105B88F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D288B080-569C-4EF7-816C-3BCE105B88F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D288B080-569C-4EF7-816C-3BCE105B88F7}.Release|x64.ActiveCfg = Release|x64
+		{D288B080-569C-4EF7-816C-3BCE105B88F7}.Release|x64.Build.0 = Release|x64
+		{99E9968A-AE2C-4E7D-9D80-DAED92D886BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99E9968A-AE2C-4E7D-9D80-DAED92D886BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99E9968A-AE2C-4E7D-9D80-DAED92D886BA}.Debug|x64.ActiveCfg = Debug|x64
+		{99E9968A-AE2C-4E7D-9D80-DAED92D886BA}.Debug|x64.Build.0 = Debug|x64
+		{99E9968A-AE2C-4E7D-9D80-DAED92D886BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99E9968A-AE2C-4E7D-9D80-DAED92D886BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99E9968A-AE2C-4E7D-9D80-DAED92D886BA}.Release|x64.ActiveCfg = Release|x64
+		{99E9968A-AE2C-4E7D-9D80-DAED92D886BA}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8C6D7FE7-B157-4A66-858F-54EAF8F7FB81}
 	EndGlobalSection
 EndGlobal
