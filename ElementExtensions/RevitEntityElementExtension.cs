@@ -76,8 +76,13 @@ namespace ExtensibleStorageExtension.ElementExtensions
 
         public static void SetWrapper<T>(this Entity entity, 
             Field field, 
-            IList<T> value, 
-            DisplayUnitType displayUnitType)
+            IList<T> value,
+#if RVT2021
+            ForgeTypeId
+#else
+            DisplayUnitType 
+#endif
+            displayUnitType)
         {
             entity.Set(field, value, displayUnitType);
         }
@@ -91,8 +96,13 @@ namespace ExtensibleStorageExtension.ElementExtensions
 
         public static void SetWrapper<TKey, TValue>(this Entity entity,
             Field field,
-            IDictionary<TKey, TValue> value, 
-            DisplayUnitType displayUnitType)
+            IDictionary<TKey, TValue> value,
+#if RVT2021
+            ForgeTypeId
+#else
+            DisplayUnitType 
+#endif
+            displayUnitType)
         {
             entity.Set(field, value, displayUnitType);
         }

@@ -68,7 +68,13 @@ namespace ExtensibleStorageExtension
                
                         propertyValue = ConvertSimpleProperty(propertyValue, field);
 
-                        if (field.UnitType == UnitType.UT_Undefined)
+                        if (field.
+#if RVT2021
+                            GetSpecTypeId() == SpecTypeId.Custom
+#else
+                            UnitType == UnitType.UT_Undefined
+#endif
+                            )
                         {
                             entity.Set(field, propertyValue);
                         }
@@ -100,7 +106,13 @@ namespace ExtensibleStorageExtension
                          * IList parameter instead FieldType, it works properly
                          */
 
-                        if (field.UnitType == UnitType.UT_Undefined)
+                        if (field.
+#if RVT2021
+                            GetSpecTypeId() == SpecTypeId.Custom
+#else
+                            UnitType == UnitType.UT_Undefined
+#endif
+                            )
                         {
                             EntityExtension.SetWrapper(entity, field, convertedIListFieldValue);
                         }
@@ -120,7 +132,13 @@ namespace ExtensibleStorageExtension
                         var convertedMapFieldValue =
                             ConvertIDictionaryProperty(propertyValue, field);
 
-                        if (field.UnitType == UnitType.UT_Undefined)
+                        if (field.
+#if RVT2021
+                            GetSpecTypeId() == SpecTypeId.Custom
+#else
+                            UnitType == UnitType.UT_Undefined
+#endif
+                            )
                         {
                             EntityExtension.SetWrapper(entity, field, convertedMapFieldValue);
                         }
@@ -535,7 +553,7 @@ namespace ExtensibleStorageExtension
             return revitEntity;
         }
 
-        #endregion
+#endregion
 
         private object GetEntityFieldValue(Entity entity, 
             Field field,
@@ -557,7 +575,13 @@ namespace ExtensibleStorageExtension
             }
 
             object entityValue;
-            if (field.UnitType == UnitType.UT_Undefined)
+            if (field.
+#if RVT2021
+                GetSpecTypeId() == SpecTypeId.Custom
+#else
+                UnitType == UnitType.UT_Undefined
+#endif
+                )
             {
                 MethodInfo entityGetMethod =
                     entity
@@ -576,7 +600,13 @@ namespace ExtensibleStorageExtension
                 MethodInfo entityGetMethod =
                     entity
                         .GetType()
-                        .GetMethod("Get", new[] { typeof(Field), typeof(DisplayUnitType) });
+                        .GetMethod("Get", new[] { typeof(Field), typeof(
+#if RVT2021
+                            ForgeTypeId
+#else
+                            DisplayUnitType
+#endif
+                        ) });
                 MethodInfo entityGetMethodGeneric =
                     entityGetMethod
                         .MakeGenericMethod(fieldValueType);
@@ -600,17 +630,29 @@ namespace ExtensibleStorageExtension
             return iRevitEntity;
         }
 
-        private DisplayUnitType GetFirstCompatibleDUT(Field field)
+        private
+#if RVT2021
+            ForgeTypeId
+#else
+            DisplayUnitType 
+#endif
+            GetFirstCompatibleDUT(Field field)
         {
-            var firstCompatibleDUT = Enum
-                    .GetValues(typeof(DisplayUnitType))
-                    .OfType<DisplayUnitType>()
-                    .FirstOrDefault(field.CompatibleDisplayUnitType);
-
-            return firstCompatibleDUT;
+            return
+#if RVT2021
+                typeof(SpecTypeId)
+                .GetProperties(BindingFlags.Public | BindingFlags.Static)
+                .Where<PropertyInfo>(p => p.PropertyType == typeof(ForgeTypeId))
+                .Select<PropertyInfo, ForgeTypeId>(p => (ForgeTypeId)p.GetValue(null, null))
+                .FirstOrDefault(field.CompatibleUnit) ?? SpecTypeId.Custom;
+#else
+                Enum
+                .GetValues(typeof(DisplayUnitType))
+                .OfType<DisplayUnitType>()
+                .FirstOrDefault(field.CompatibleDisplayUnitType);
+#endif
         }
 
     }
-
 
 }

@@ -83,16 +83,19 @@ namespace ExtensibleStorageExtension
                 if (!string.IsNullOrEmpty(fieldAttribute.Documentation))
                     fieldBuilder.SetDocumentation(fieldAttribute.Documentation);
                 if (fieldBuilder.NeedsUnits())
-                    fieldBuilder.SetUnitType(fieldAttribute.UnitType);
-
-                
+                    fieldBuilder.
+#if RVT2021
+                        SetSpec(
+#else
+                        SetUnitType(
+#endif
+                        fieldAttribute.UnitType);
             }
 
             return schemaBuilder.Finish();
         }
 
-        #endregion
+#endregion
 
-        
     }
 }
