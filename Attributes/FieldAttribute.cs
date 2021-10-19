@@ -11,13 +11,13 @@ namespace ExtensibleStorageExtension.Attributes
         public string Documentation { get; set; }
 
         public
-#if RVT2021
+#if RVT2021 || RVT2022
             ForgeTypeId
 #else
             UnitType 
 #endif
             UnitType { get; set; } =
-#if RVT2021
+#if RVT2021 || RVT2022
                 SpecTypeId.Custom
 #else
                 UnitType.UT_Undefined

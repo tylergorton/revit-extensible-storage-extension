@@ -69,7 +69,7 @@ namespace ExtensibleStorageExtension
                         propertyValue = ConvertSimpleProperty(propertyValue, field);
 
                         if (field.
-#if RVT2021
+#if RVT2021 || RVT2022
                             GetSpecTypeId() == SpecTypeId.Custom
 #else
                             UnitType == UnitType.UT_Undefined
@@ -107,7 +107,7 @@ namespace ExtensibleStorageExtension
                          */
 
                         if (field.
-#if RVT2021
+#if RVT2021 || RVT2022
                             GetSpecTypeId() == SpecTypeId.Custom
 #else
                             UnitType == UnitType.UT_Undefined
@@ -133,7 +133,7 @@ namespace ExtensibleStorageExtension
                             ConvertIDictionaryProperty(propertyValue, field);
 
                         if (field.
-#if RVT2021
+#if RVT2021 || RVT2022
                             GetSpecTypeId() == SpecTypeId.Custom
 #else
                             UnitType == UnitType.UT_Undefined
@@ -576,7 +576,7 @@ namespace ExtensibleStorageExtension
 
             object entityValue;
             if (field.
-#if RVT2021
+#if RVT2021 || RVT2022
                 GetSpecTypeId() == SpecTypeId.Custom
 #else
                 UnitType == UnitType.UT_Undefined
@@ -601,7 +601,7 @@ namespace ExtensibleStorageExtension
                     entity
                         .GetType()
                         .GetMethod("Get", new[] { typeof(Field), typeof(
-#if RVT2021
+#if RVT2021 || RVT2022
                             ForgeTypeId
 #else
                             DisplayUnitType
@@ -631,7 +631,7 @@ namespace ExtensibleStorageExtension
         }
 
         private
-#if RVT2021
+#if RVT2021 || RVT2022
             ForgeTypeId
 #else
             DisplayUnitType 
@@ -639,7 +639,7 @@ namespace ExtensibleStorageExtension
             GetFirstCompatibleDUT(Field field)
         {
             return
-#if RVT2021
+#if RVT2021 || RVT2022
                 typeof(SpecTypeId)
                 .GetProperties(BindingFlags.Public | BindingFlags.Static)
                 .Where<PropertyInfo>(p => p.PropertyType == typeof(ForgeTypeId))

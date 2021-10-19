@@ -7,9 +7,6 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyTitle("ExtensibleStorageExtension2021")]
 
-// The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1E78ABD3-CE09-4C0E-91AF-BA9373A6B015")]
-
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version

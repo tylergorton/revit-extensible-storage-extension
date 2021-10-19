@@ -84,7 +84,7 @@ namespace ExtensibleStorageExtension
                     fieldBuilder.SetDocumentation(fieldAttribute.Documentation);
                 if (fieldBuilder.NeedsUnits())
                     fieldBuilder.
-#if RVT2021
+#if RVT2021 || RVT2022
                         SetSpec(
 #else
                         SetUnitType(
