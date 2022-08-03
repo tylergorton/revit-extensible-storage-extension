@@ -84,10 +84,10 @@ namespace ExtensibleStorageExtension
                     fieldBuilder.SetDocumentation(fieldAttribute.Documentation);
                 if (fieldBuilder.NeedsUnits())
                     fieldBuilder.
-#if RVT2021 || RVT2022
-                        SetSpec(
-#else
+#if RVT2018 || RVT2019 || RVT2020
                         SetUnitType(
+#else
+                        SetSpec(
 #endif
                         fieldAttribute.UnitType);
             }

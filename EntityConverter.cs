@@ -69,10 +69,10 @@ namespace ExtensibleStorageExtension
                         propertyValue = ConvertSimpleProperty(propertyValue, field);
 
                         if (field.
-#if RVT2021 || RVT2022
-                            GetSpecTypeId() == SpecTypeId.Custom
-#else
+#if RVT2018 || RVT2019 || RVT2020
                             UnitType == UnitType.UT_Undefined
+#else
+                            GetSpecTypeId() == SpecTypeId.Custom
 #endif
                             )
                         {
@@ -107,10 +107,10 @@ namespace ExtensibleStorageExtension
                          */
 
                         if (field.
-#if RVT2021 || RVT2022
-                            GetSpecTypeId() == SpecTypeId.Custom
-#else
+#if RVT2018 || RVT2019 || RVT2020
                             UnitType == UnitType.UT_Undefined
+#else
+                            GetSpecTypeId() == SpecTypeId.Custom
 #endif
                             )
                         {
@@ -133,10 +133,10 @@ namespace ExtensibleStorageExtension
                             ConvertIDictionaryProperty(propertyValue, field);
 
                         if (field.
-#if RVT2021 || RVT2022
-                            GetSpecTypeId() == SpecTypeId.Custom
-#else
+#if RVT2018 || RVT2019 || RVT2020
                             UnitType == UnitType.UT_Undefined
+#else
+                            GetSpecTypeId() == SpecTypeId.Custom
 #endif
                             )
                         {
@@ -576,10 +576,10 @@ namespace ExtensibleStorageExtension
 
             object entityValue;
             if (field.
-#if RVT2021 || RVT2022
-                GetSpecTypeId() == SpecTypeId.Custom
-#else
+#if RVT2018 || RVT2019 || RVT2020
                 UnitType == UnitType.UT_Undefined
+#else
+                GetSpecTypeId() == SpecTypeId.Custom
 #endif
                 )
             {
@@ -601,10 +601,10 @@ namespace ExtensibleStorageExtension
                     entity
                         .GetType()
                         .GetMethod("Get", new[] { typeof(Field), typeof(
-#if RVT2021 || RVT2022
-                            ForgeTypeId
-#else
+#if RVT2018 || RVT2019 || RVT2020
                             DisplayUnitType
+#else
+                            ForgeTypeId
 #endif
                         ) });
                 MethodInfo entityGetMethodGeneric =
@@ -631,25 +631,25 @@ namespace ExtensibleStorageExtension
         }
 
         private
-#if RVT2021 || RVT2022
-            ForgeTypeId
+#if RVT2018 || RVT2019 || RVT2020
+            DisplayUnitType
 #else
-            DisplayUnitType 
+            ForgeTypeId
 #endif
             GetFirstCompatibleDUT(Field field)
         {
             return
-#if RVT2021 || RVT2022
+#if RVT2018 || RVT2019 || RVT2020
+                Enum
+                .GetValues(typeof(DisplayUnitType))
+                .OfType<DisplayUnitType>()
+                .FirstOrDefault(field.CompatibleDisplayUnitType);
+#else
                 typeof(SpecTypeId)
                 .GetProperties(BindingFlags.Public | BindingFlags.Static)
                 .Where<PropertyInfo>(p => p.PropertyType == typeof(ForgeTypeId))
                 .Select<PropertyInfo, ForgeTypeId>(p => (ForgeTypeId)p.GetValue(null, null))
                 .FirstOrDefault(field.CompatibleUnit) ?? SpecTypeId.Custom;
-#else
-                Enum
-                .GetValues(typeof(DisplayUnitType))
-                .OfType<DisplayUnitType>()
-                .FirstOrDefault(field.CompatibleDisplayUnitType);
 #endif
         }
 

@@ -77,10 +77,10 @@ namespace ExtensibleStorageExtension.ElementExtensions
         public static void SetWrapper<T>(this Entity entity, 
             Field field, 
             IList<T> value,
-#if RVT2021 || RVT2022
-            ForgeTypeId
+#if RVT2018 || RVT2019 || RVT2020
+            DisplayUnitType
 #else
-            DisplayUnitType 
+            ForgeTypeId
 #endif
             displayUnitType)
         {
@@ -97,10 +97,10 @@ namespace ExtensibleStorageExtension.ElementExtensions
         public static void SetWrapper<TKey, TValue>(this Entity entity,
             Field field,
             IDictionary<TKey, TValue> value,
-#if RVT2021 || RVT2022
-            ForgeTypeId
+#if RVT2018 || RVT2019 || RVT2020
+            DisplayUnitType
 #else
-            DisplayUnitType 
+            ForgeTypeId
 #endif
             displayUnitType)
         {
