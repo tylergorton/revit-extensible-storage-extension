@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensibleStorageExtension2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensibleStorageExtension2023", "ExtensibleStorageExtension2023.csproj", "{BCAF4F5F-4787-458C-B014-9E21368FCB50}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensibleStorageExtension2024", "ExtensibleStorageExtension2024.csproj", "{1B1E130C-AA00-402A-BBE8-E7251C4CE5F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,14 @@ Global
 		{BCAF4F5F-4787-458C-B014-9E21368FCB50}.Release|Any CPU.Build.0 = Release|x64
 		{BCAF4F5F-4787-458C-B014-9E21368FCB50}.Release|x64.ActiveCfg = Release|x64
 		{BCAF4F5F-4787-458C-B014-9E21368FCB50}.Release|x64.Build.0 = Release|x64
+		{1B1E130C-AA00-402A-BBE8-E7251C4CE5F0}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{1B1E130C-AA00-402A-BBE8-E7251C4CE5F0}.Debug|Any CPU.Build.0 = Debug|x64
+		{1B1E130C-AA00-402A-BBE8-E7251C4CE5F0}.Debug|x64.ActiveCfg = Debug|x64
+		{1B1E130C-AA00-402A-BBE8-E7251C4CE5F0}.Debug|x64.Build.0 = Debug|x64
+		{1B1E130C-AA00-402A-BBE8-E7251C4CE5F0}.Release|Any CPU.ActiveCfg = Release|x64
+		{1B1E130C-AA00-402A-BBE8-E7251C4CE5F0}.Release|Any CPU.Build.0 = Release|x64
+		{1B1E130C-AA00-402A-BBE8-E7251C4CE5F0}.Release|x64.ActiveCfg = Release|x64
+		{1B1E130C-AA00-402A-BBE8-E7251C4CE5F0}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
