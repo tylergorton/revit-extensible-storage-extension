@@ -17,8 +17,6 @@ namespace ExtensibleStorageExtension
 
         private readonly IFieldFactory _fieldFactory = new FieldFactory();
 
-        #region Implementation of ISchemaCreator
-
         public Schema CreateSchema(Type type)
         {
             SchemaAttribute schemaAttribute = 
@@ -94,8 +92,6 @@ namespace ExtensibleStorageExtension
 
             return schemaBuilder.Finish();
         }
-
-#endregion
 
     }
 }
