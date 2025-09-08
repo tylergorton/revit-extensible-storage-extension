@@ -69,7 +69,7 @@ namespace ExtensibleStorageExtension
                         propertyValue = ConvertSimpleProperty(propertyValue, field);
 
                         if (field.
-#if RVT2018 || RVT2019 || RVT2020
+#if RVT2019 || RVT2020
                             UnitType == UnitType.UT_Undefined
 #else
                             GetSpecTypeId() == SpecTypeId.Custom
@@ -107,7 +107,7 @@ namespace ExtensibleStorageExtension
                          */
 
                         if (field.
-#if RVT2018 || RVT2019 || RVT2020
+#if RVT2019 || RVT2020
                             UnitType == UnitType.UT_Undefined
 #else
                             GetSpecTypeId() == SpecTypeId.Custom
@@ -133,7 +133,7 @@ namespace ExtensibleStorageExtension
                             ConvertIDictionaryProperty(propertyValue, field);
 
                         if (field.
-#if RVT2018 || RVT2019 || RVT2020
+#if RVT2019 || RVT2020
                             UnitType == UnitType.UT_Undefined
 #else
                             GetSpecTypeId() == SpecTypeId.Custom
@@ -576,7 +576,7 @@ namespace ExtensibleStorageExtension
 
             object entityValue;
             if (field.
-#if RVT2018 || RVT2019 || RVT2020
+#if RVT2019 || RVT2020
                 UnitType == UnitType.UT_Undefined
 #else
                 GetSpecTypeId() == SpecTypeId.Custom
@@ -601,7 +601,7 @@ namespace ExtensibleStorageExtension
                     entity
                         .GetType()
                         .GetMethod("Get", new[] { typeof(Field), typeof(
-#if RVT2018 || RVT2019 || RVT2020
+#if RVT2019 || RVT2020
                             DisplayUnitType
 #else
                             ForgeTypeId
@@ -631,7 +631,7 @@ namespace ExtensibleStorageExtension
         }
 
         private
-#if RVT2018 || RVT2019 || RVT2020
+#if RVT2019 || RVT2020
             DisplayUnitType
 #else
             ForgeTypeId
@@ -639,7 +639,7 @@ namespace ExtensibleStorageExtension
             GetFirstCompatibleDUT(Field field)
         {
             return
-#if RVT2018 || RVT2019 || RVT2020
+#if RVT2019 || RVT2020
                 Enum
                 .GetValues(typeof(DisplayUnitType))
                 .OfType<DisplayUnitType>()

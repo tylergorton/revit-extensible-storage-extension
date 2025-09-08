@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AppendTargetFrameworkToOutputPath>False</AppendTargetFrameworkToOutputPath>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!--Nullable>enable</Nullable-->
+    <Platforms>x64</Platforms>
+    <RootNamespace>ExtensibleStorageExtension</RootNamespace>
+    <OutputPath>Output</OutputPath>
+    <IsPublishable>False</IsPublishable>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+    <AssemblyVersion>2026.2.0.1</AssemblyVersion>
+    <FileVersion>2026.2.0.1</FileVersion>
+    <Title>Revit Extensible Storage Extension</Title>
+    <Authors>Pura Evo</Authors>
+    <Product>Revit Extensible Storage Extension</Product>
+    <Company>Arup</Company>
+    <DefineConstants>$(DefineConstants);RVT2025</DefineConstants>
+  </PropertyGroup>
+
+  <!--<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DefineConstants>$(DefineConstants);R2025</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DefineConstants>$(DefineConstants);R2025</DefineConstants>
+  </PropertyGroup>-->
+
+  <ItemGroup>
+    <Compile Remove="Output\**" />
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Output\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Output\**" />
+    <None Remove="Properties\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove=".gitignore" />
+    <None Remove="README.md" />
+    <None Remove="_gitignore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="RevitAPI">
+      <HintPath>C:\Program Files\Autodesk\Revit 2026\RevitAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="SignDlls" AfterTargets="AfterBuild;AfterRebuild" Condition="'$(Configuration)'=='Release'">
+    <Exec Command="call &quot;..\Certificate\Sign.bat&quot; &quot;$(TargetPath)&quot;" ConsoleToMsBuild="true" />
+  </Target>
+
+</Project>
